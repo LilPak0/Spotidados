@@ -16,7 +16,7 @@ type TrackItem = {
 };
 
 type Track = {
-  id: string | undefined;
+  entryId: string | undefined;
   playedAt?: string;
   msPlayed?: number;
   trackName?: string;
@@ -39,7 +39,7 @@ export default function useTrack() {
       .then((data: TrackItem | TrackItem[]) => {
         const item = Array.isArray(data) ? data[0] : data;
         setTrack({
-          id: item._id?.$oid,
+          entryId: item._id?.$oid,
           playedAt: item.ts,
           msPlayed: item.ms_played,
           trackName: item.master_metadata_track_name,
