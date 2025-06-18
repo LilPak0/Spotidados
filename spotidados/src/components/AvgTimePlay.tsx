@@ -9,7 +9,7 @@ function getDayString(dateStr?: string) {
 export default function AvgMinutesPerDay() {
   const tracks = useTrack();
 
-  if (!tracks || tracks.length === 0) return <div>Loading...</div>;
+  if (!tracks || tracks.length === 0) return <span>Loading...</span>;
 
   // 1. Filter unskipped tracks
   const notSkipped = tracks.filter(
@@ -31,7 +31,11 @@ export default function AvgMinutesPerDay() {
 
   return (
     <span>
+<<<<<<< HEAD
+      {avgMinutesPerDay.toFixed(2)}
+=======
       {Math.floor(avgMinutesPerDay)}
+>>>>>>> 14e9efcb0652f086be5a8284fe98f8554457891a
     </span>
   );
 }

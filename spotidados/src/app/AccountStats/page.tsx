@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 "use client"
 import { useRouter } from "next/navigation";
-
-=======
 import AvgTimePlayed from "@/components/AvgTimePlay";
->>>>>>> 92ea239bf6f52093f030c9d5261993aef5148819
 
 export default function Home() {
   const router = useRouter();
@@ -26,8 +22,8 @@ export default function Home() {
              </div>
 
              <div>
-               <p className="text-[1.12rem]">You've heard <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes</p>
-               <p className="text-[1.12rem]">An average of <strong>235</strong> minutes per day</p>
+               <p className="text-[1.12rem]">You've heard <strong>12</strong> minutes</p>
+               <p className="text-[1.12rem]">An average of <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes per day</p>
               </div>
 
              <div>
