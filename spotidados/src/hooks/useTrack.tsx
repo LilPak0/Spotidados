@@ -31,14 +31,14 @@ type Track = {
 };
 
 export default function useTrack() {
-  const [track, setTrack] = useState<Track | null>(null);
+  const [tracks, setTracks] = useState<Track[]>([]);
 
   useEffect(() => {
     fetch("/data/history.json")
       .then((res) => res.json())
-      .then((data: TrackItem | TrackItem[]) => {
-        const item = Array.isArray(data) ? data[0] : data;
-        setTrack({
+      .then((data: TrackItem[] | TrackItem) => {
+        const items = Array.isArray(data) ? data : [data];
+        const mappedTracks = items.map((item) => ({
           entryId: item._id?.$oid,
           playedAt: item.ts,
           msPlayed: item.ms_played,
@@ -51,12 +51,13 @@ export default function useTrack() {
           reasonEnd: item.reason_end,
           shuffle: item.shuffle,
           skipped: item.skipped,
-        });
+        }));
+        setTracks(mappedTracks);
       })
       .catch(console.error);
   }, []);
 
-  return track;
+  return tracks;
 }
 
 /*

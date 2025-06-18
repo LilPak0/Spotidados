@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 "use client"
 import { useRouter } from "next/navigation";
 
+=======
+import AvgTimePlayed from "@/components/AvgTimePlay";
+>>>>>>> 92ea239bf6f52093f030c9d5261993aef5148819
 
 export default function Home() {
   const router = useRouter();
@@ -17,17 +21,17 @@ export default function Home() {
         <div className="mt-[5rem] flex flex-col justify-center items-center px-8 w-full max-w-md">
            <div className="space-y-6 text-center">
              <div>
-               <p className="text-[1.12rem]">You've played <strong>1394</strong> songs</p>
-               <p className="text-[1.12rem]">A total of <strong>159</strong> different tracks</p>
+               <p className="text-[1.12rem]">You've played <strong>number</strong> songs</p>
+               <p className="text-[1.12rem]">A total of <strong>number</strong> different tracks</p>
              </div>
 
              <div>
-               <p className="text-[1.12rem]">You've heard <strong>14285</strong> minutes</p>
+               <p className="text-[1.12rem]">You've heard <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes</p>
                <p className="text-[1.12rem]">An average of <strong>235</strong> minutes per day</p>
               </div>
 
              <div>
-               <p className="text-[1.12rem]">You prefer to listen to music at night</p>
+               <p className="text-[1.12rem]">You prefer to listen to music at: </p>
                <p className="text-[1.12rem]">Your <strong>Summer</strong> is always full of music</p>
              </div>
            </div>
