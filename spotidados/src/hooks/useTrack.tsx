@@ -59,28 +59,3 @@ export default function useTrack() {
 
   return tracks;
 }
-
-/*
- example of use
-
-import useTrack from "../hooks/useTrack";
-
-export default function TrackComponent() {
-  const track = useTrack();
-
-  if (!track) return <div>Loading...</div>;
-
-  return (
-    <div>
-      <div>Track: {track.trackName}</div>
-      <div>Artist: {track.artist}</div>
-      <div>Album: {track.album}</div>
-      <div>Played At: {track.playedAt}</div>
-      // Use other mapped values as needed 
-    </div>
-  );
-}
-
-
-
-*/

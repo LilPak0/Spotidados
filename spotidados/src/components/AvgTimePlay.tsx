@@ -1,24 +1,37 @@
 import React from "react";
 import useTrack from "../hooks/useTrack";
 
-export default function AvgTimePlayed() {
+function getDayString(dateStr?: string) {
+  if (!dateStr) return "";
+  return dateStr.split("T")[0]; // "YYYY-MM-DD"
+}
+
+export default function AvgMinutesPerDay() {
   const tracks = useTrack();
 
-  if (!tracks || tracks.length === 0) return <div>Loading...</div>;
+  if (!tracks || tracks.length === 0) return <span>Loading...</span>;
 
-  // Filter tracks that haven't been skipped
-  const notSkipped = tracks.filter((track) => !track.skipped && track.msPlayed);
+  // 1. Filter unskipped tracks
+  const notSkipped = tracks.filter(
+    (track) => !track.skipped && track.msPlayed && track.playedAt
+  );
 
-  // Calculate average time played in minutes
-  const avgMinutes =
-    notSkipped.length > 0
-      ? notSkipped.reduce((sum, track) => sum + (track.msPlayed || 0), 0) /
-        notSkipped.length /
-        1000 /
-        60
-      : 0;
+  // 2. Group by day and sum minutes
+  const minutesPerDay: Record<string, number> = {};
+  notSkipped.forEach((track) => {
+    const day = getDayString(track.playedAt);
+    const minutes = (track.msPlayed || 0) / 1000 / 60;
+    minutesPerDay[day] = (minutesPerDay[day] || 0) + minutes;
+  });
+
+  // 3. Calculate average minutes per day
+  const dayCounts = Object.keys(minutesPerDay).length;
+  const totalMinutes = Object.values(minutesPerDay).reduce((a, b) => a + b, 0);
+  const avgMinutesPerDay = dayCounts > 0 ? totalMinutes / dayCounts : 0;
 
   return (
-      <div>`${avgMinutes.toFixed(2)}`</div>
+    <span>
+      {avgMinutesPerDay.toFixed(2)}
+    </span>
   );
 }
