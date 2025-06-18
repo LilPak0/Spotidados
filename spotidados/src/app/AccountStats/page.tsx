@@ -1,6 +1,8 @@
 "use client"
 import { useRouter } from "next/navigation";
 import AvgTimePlayed from "@/components/AvgTimePlay";
+import TotalSongs from "@/components/TotalSongs";
+import TotalDifferentSongs from "@/components/TotalDifferentSongs";
 
 export default function Home() {
   const router = useRouter();
@@ -17,8 +19,8 @@ export default function Home() {
         <div className="mt-[5rem] flex flex-col justify-center items-center px-8 w-full max-w-md">
            <div className="space-y-6 text-center">
              <div>
-               <p className="text-[1.12rem]">You've played <strong>number</strong> songs</p>
-               <p className="text-[1.12rem]">A total of <strong>number</strong> different tracks</p>
+               <p className="text-[1.12rem]">You've played <strong><TotalSongs></TotalSongs></strong> songs</p>
+               <p className="text-[1.12rem]">A total of <strong><TotalDifferentSongs></TotalDifferentSongs></strong> different tracks</p>
              </div>
 
              <div>
