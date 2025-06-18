@@ -26,7 +26,7 @@ export default function SeasonGraphicus() {
   }));
 
   return (
-    <PieChart width={400} height={300}>
+    <PieChart width={355} height={300}>
       <Pie
         data={data}
         dataKey="value"
