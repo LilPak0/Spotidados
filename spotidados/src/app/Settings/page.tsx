@@ -1,3 +1,6 @@
+"use client"
+import SeasonPieChart from "@/components/SeasonGraphicus";
+
 export default function Home() {
   return (
     <div className="bg-[url(/main_background.png)] bg-cover bg-center h-dvh text-black overflow-hidden">
@@ -18,7 +21,7 @@ export default function Home() {
             <p className="mb-2">Membership Plan: None</p>
             <p className="mb-2">Status: Missed last payment</p>
         </div>
-
+        <SeasonPieChart></SeasonPieChart>
       </div>
 
       <div className="bg-[url(/nav_bar.png)] bg-no-repeat bg-center bg-contain">

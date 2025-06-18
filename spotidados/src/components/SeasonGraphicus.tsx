@@ -2,10 +2,10 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import useTrack from "../hooks/useTrack";
 import { filtrosSazonais } from "./filtrosSazonais";
 
-const COLORS = ["#0daff2", // inver
-                "#29ab4d", // primv
-                "#f9d005", // verao
-                "#e97912"  // outon
+const COLORS = ["#f9d005 ", // inver
+                "#e97912 ", // primv
+                "#0daff2", // verao
+                "#29ab4d"  // outon
               ];
 
 export default function SeasonPieChart() {
