@@ -31,7 +31,11 @@ export default function AvgMinutesPerDay() {
 
   return (
     <span>
+<<<<<<< HEAD
       {avgMinutesPerDay.toFixed(2)}
+=======
+      {Math.floor(avgMinutesPerDay)}
+>>>>>>> 14e9efcb0652f086be5a8284fe98f8554457891a
     </span>
   );
 }
