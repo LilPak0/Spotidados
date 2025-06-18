@@ -21,8 +21,6 @@ export default function Home() {
 
       </div>
 
-
-
       <div className="bg-[url(/nav_bar.png)] bg-no-repeat bg-center bg-contain">
           <img className="relative top-[-20px]" src="/icon_nav.png" alt="Nav bar icon" />
       </div>

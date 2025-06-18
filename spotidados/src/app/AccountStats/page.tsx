@@ -1,5 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
+
 
 export default function Home() {
+  const router = useRouter();
   return (
     <div className="bg-[url(/main_background.png)] bg-cover bg-center h-dvh text-black">
       <div className="bg-[url(/background_before.png)] bg-center bg-contain bg-no-repeat h-[85%] overflow-hidden">
@@ -30,8 +34,28 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[url(/nav_bar.png)] bg-no-repeat bg-center bg-contain">
-          <img className="relative top-[-20px]" src="/icon_nav.png" alt="Nav bar icon" />
+      <div className="relative bg-[url(/nav_bar.png)] bg-no-repeat bg-center bg-contain">
+        <img className="relative top-[-20px]" src="/icon_nav.png" alt="Nav bar icon" />
+        <button
+          onClick={() => {}}
+          className="absolute left-[36px] top-[2px] w-[45px] h-[45px] bg-transparent"
+        />
+        <button
+          onClick={() => {}}
+          className="absolute left-[113px] top-[2px] w-[45px] h-[45px] bg-transparent"
+        />
+        <button
+          onClick={() => {}}
+          className="absolute left-[192px] top-[2px] w-[45px] h-[45px] bg-transparent"
+        />
+        <button
+          onClick={() => {}}
+          className="absolute left-[276px] top-[2px] w-[45px] h-[45px] bg-transparent"
+        />
+         <button
+          onClick={() => router.push('/Settings')}
+          className="absolute left-[357px] top-[2px] w-[45px] h-[45px] bg-transparent"
+        />
       </div>
     </div>
   );
