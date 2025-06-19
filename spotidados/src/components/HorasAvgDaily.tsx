@@ -14,7 +14,7 @@ function getHourlyAverages(tracks) {
   const result = [];
   for (let hour = 0; hour < 24; hour++) {
     const msList = hourMap.get(hour) || [];
-    const avg = msList.length > 0 ? msList.reduce((a, b) => a + b, 0) / msList.length / 60000 : 0;
+    const avg = msList.length > 0 ? msList.reduce((a, b) => a + b, 0) / msList.length / 6000 : 0;
     result.push({
       hour: `${hour}:00`,
       avgMinutes: Number(avg.toFixed(2)),
