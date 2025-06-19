@@ -14,7 +14,7 @@ export default function Home() {
         <div className="bg-[url(/profile_frame.png)] bg-contain w-[180px] h-[180px] flex items-center justify-center">
           <img className="object-contain w-[118px]" src="/profile_picture.png" alt="Profile" />
         </div>
-        <p className="text-[32px] mt-4">xXCallax13Xx</p>
+        <p className="text-[32px] mt-4">Your statistics</p>
       </div>
 
       <div className="flex items-center gap-2 p-2.5">
