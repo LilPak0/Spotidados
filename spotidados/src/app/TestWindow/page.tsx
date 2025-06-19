@@ -5,6 +5,7 @@ import Top100 from "@/app/Top100Artists/page";
 import Settings from "@/app/Settings/page";
 import { useState } from "react";
 import { Rnd } from "react-rnd";
+import { useRouter } from "next/navigation";
 
 const icons = [
   { name: "Top100", src: "/iconBarras.png" },
@@ -56,15 +57,14 @@ function AnimatedWindow({ name, onClose, children }) {
             <span className="text-2xl text-gray-500 font-bold">&times;</span>
           </button>
         </div>
-        <div className="flex-1 flex flex-col">
-          {children}
-        </div>
+        <div className="flex-1 flex flex-col">{children}</div>
       </div>
     </Rnd>
   );
 }
 
 export default function Page() {
+  const router = useRouter();
   const [openWindows, setOpenWindows] = useState<string[]>([]);
 
   const openWindow = (name: string) => {
@@ -97,7 +97,7 @@ export default function Page() {
             bounds="window"
           >
             <button
-              onTouchEnd={() => openWindow(icon.name)}
+              onTouchEnd={() => icon.name === "Home" ? router.push("/") : openWindow(icon.name)}
               onClick={() => openWindow(icon.name)}
               className="flex flex-col items-center focus:outline-none"
             >
@@ -119,23 +119,16 @@ export default function Page() {
           onClose={() => closeWindow(name)}
         >
           {name === "Stats" ? (
-            <AcountStats></AcountStats>
-          ) : (
-            undefined
-          )}
+            <AcountStats />
+          ) : undefined}
 
           {name === "Top100" ? (
-            <Top100></Top100>
-          ) : (
-            undefined
-          )}
+            <Top100 />
+          ) : undefined}
 
           {name === "Settings" ? (
-            <Settings></Settings>
-          ) : (
-            undefined
-          )}
-
+            <Settings />
+          ) : undefined}
         </AnimatedWindow>
       ))}
     </div>

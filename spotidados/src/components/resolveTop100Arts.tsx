@@ -43,9 +43,10 @@ function filterTracksByRange(tracks: any[], range: Range) {
 
 interface Props {
   range: Range;
+  setOpenWindows?: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export default function ResolveTop100Arts({ range }: Props) {
+export default function ResolveTop100Arts({ range, setOpenWindows }: Props) {
   const tracks = useTrack();
   const router = useRouter();
 
