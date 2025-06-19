@@ -4,37 +4,37 @@ import AvgTimePlayed from "@/components/AvgTimePlay";
 import TotalSongs from "@/components/TotalSongs";
 import TotalDifferentSongs from "@/components/TotalDifferentSongs";
 import SeasonPieChart from "@/components/SeasonGraphicus";
+import ValorTotalDeMins from "@/components/ValorTotalDeMins";
 
 export default function Home() {
   const router = useRouter();
   return ( 
-    <div className="text-black p-5">
-      <div className=" flex flex-col items-center mt-[2rem]">
+    <div className="text-black p-1">
+      <div className=" flex flex-col items-center mt-[2rem] bg-white rounded-2xl inset-shadow-sm inset-shadow-gray-900">
         <div className="bg-[url(/profile_frame.png)] bg-contain w-[180px] h-[180px] flex items-center justify-center">
           <img className="object-contain w-[118px]" src="/profile_picture.png" alt="Profile" />
         </div>
-        <p className="text-[32px] mt-4">Hi, Callax13</p>
+        <p className="text-[32px] mt-4">xXCallax13Xx</p>
       </div>
 
-      <div className="flex items-center gap-2 p-2">
-        <div className="h-3 w-[100%] bg-gradient-to-b from-gray-200 to-gray-300 mx-auto" />
+      <div className="flex items-center gap-2 p-2.5">
+        
       </div>
 
-      <div className="mt-[3rem] flex flex-col justify-center items-center px-8 w-full max-w-md">
+      <div className="bg-white rounded-2xl inset-shadow-sm inset-shadow-gray-900 h-120">
         <div className="space-y-6 text-center">
           <div>
-            <p className="text-[1.12rem]">You've played <strong><TotalSongs></TotalSongs></strong> songs</p>
+            <p className="text-[1.12rem] pt-5">You've played <strong><TotalSongs></TotalSongs></strong> songs</p>
             <p className="text-[1.12rem]">A total of <strong><TotalDifferentSongs></TotalDifferentSongs></strong> different tracks</p>
           </div>
 
           <div>
-            <p className="text-[1.12rem]">You've heard <strong>12</strong> minutes</p>
+            <p className="text-[1.12rem]"><strong> <ValorTotalDeMins/> </strong></p>
             <p className="text-[1.12rem]">An average of <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes per day</p>
           </div>
 
           <div>
-            <p className="text-[1.12rem]">You prefer to listen to music at: </p>
-            <p className="text-[1.12rem]">Your <strong>Summer</strong> is always full of music</p>
+            <p className="text-[1.12rem] pb-5">Your <strong>Summer</strong> is always full of music</p>
           </div>
         </div>
         <SeasonPieChart></SeasonPieChart>
