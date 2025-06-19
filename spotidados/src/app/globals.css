@@ -22,7 +22,8 @@
 body {
   background-image: url("/main_background.png");
   background-repeat:no-repeat;
-  background-size:cover;  color: var(--foreground);
+  background-size:100% 100%;  
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
