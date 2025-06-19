@@ -33,7 +33,7 @@ function AnimatedWindow({ name, onClose, children }) {
         height,
       }}
       className="shadow-2xl"
-      disableDragging={false}
+      dragHandleClassName="drag-handle" // Only allow dragging by this class
       enableResizing={false}
       bounds="window"
     >
@@ -42,7 +42,8 @@ function AnimatedWindow({ name, onClose, children }) {
           closing ? "scale-0" : "scale-100"
         }`}
       >
-        <div className="relative flex items-center h-14 rounded-t-2xl bg-gradient-to-b from-gray-200 to-gray-300 border-b border-gray-300 px-4">
+        <div className="relative flex items-center h-14 rounded-t-2xl bg-gradient-to-b from-gray-200 to-gray-300 border-b border-gray-300 px-4 drag-handle">
+          {/* Added drag-handle class above */}
           <div className="flex-1 flex justify-center">
             <span className="font-semibold text-gray-700 text-lg">{name}</span>
           </div>
