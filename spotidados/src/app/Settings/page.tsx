@@ -15,13 +15,12 @@ export default function Home() {
       </div>
 
       <div className="ml-[1rem] mt-[2rem] text-[1.15rem]">
-        <p className="mb-2">Email: ped********@gmail.com</p>
+        <p className="mb-2">Email: pedr********@gmail.com</p>
         <p className="mb-2">Membership Plan: None</p>
         <p className="mb-2">Status: Missed last payment</p>
       </div>
-      <div className="flex-1 flex flex-col gap-2 p-2">
-        <div className="flex-1 rounded-xl border border-red-700 bg-blue-700 mb-2" />
-        <div className="flex-1 rounded-xl border border-red-700 bg-blue-700" />
+      <div className="flex items-center gap-2 p-2">
+        <div className="h-3 w-[100%] bg-gradient-to-b from-gray-200 to-gray-300 mx-auto" />
       </div>
     </div>
   );

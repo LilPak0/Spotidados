@@ -17,7 +17,7 @@ const icons = [
 function AnimatedWindow({ name, onClose, children }) {
   const [closing, setClosing] = useState(false);
   const width = 405;
-  const height = 890;
+  const height = 860;
 
   const handleClose = () => {
     setClosing(true);
@@ -88,8 +88,8 @@ export default function Page() {
           <Rnd
             key={icon.name}
             default={{
-              x: 20 + idx * 90,
-              y: 850,
+              x: 17 + idx * 90,
+              y: 870,
               width: 60,
               height: 80,
             }}
