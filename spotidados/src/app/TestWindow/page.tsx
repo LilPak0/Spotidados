@@ -88,8 +88,8 @@ export default function Page() {
           <Rnd
             key={icon.name}
             default={{
-              x: 40 + idx * 90,
-              y: 20,
+              x: 20 + idx * 90,
+              y: 850,
               width: 60,
               height: 80,
             }}
