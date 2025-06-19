@@ -1,14 +1,17 @@
 "use client";
 import SeasonGraphicus from "@/components/SeasonGraphicus";
+import AcountStats from "@/app/AccountStats/page";
+import Top100 from "@/app/Top100Artists/page";
+import Settings from "@/app/Settings/page";
 import { useState } from "react";
 import { Rnd } from "react-rnd";
 
 const icons = [
-  { name: "Chart1", src: "/iconBarras.png" },
-  { name: "Search", src: "/iconCasa.png" },
+  { name: "Top100", src: "/iconBarras.png" },
+  { name: "Home", src: "/iconCasa.png" },
   { name: "Settings", src: "/iconGear.png" },
-  { name: "Home", src: "/iconLupa.png" },
-  { name: "Chart2", src: "/iconStats.png" },
+  { name: "Search", src: "/iconLupa.png" },
+  { name: "Stats", src: "/iconStats.png" },
 ];
 
 function AnimatedWindow({ name, onClose, children }) {
@@ -44,6 +47,7 @@ function AnimatedWindow({ name, onClose, children }) {
             <span className="font-semibold text-gray-700 text-lg">{name}</span>
           </div>
           <button
+            onTouchStart={handleClose}
             onClick={handleClose}
             className="absolute right-3 top-2 w-8 h-8 flex items-center justify-center rounded-xl border border-gray-300 bg-gray-200 hover:bg-gray-300 shadow"
             aria-label="Close"
@@ -92,6 +96,7 @@ export default function Page() {
             bounds="window"
           >
             <button
+              onTouchEnd={() => openWindow(icon.name)}
               onClick={() => openWindow(icon.name)}
               className="flex flex-col items-center focus:outline-none"
             >
@@ -100,7 +105,7 @@ export default function Page() {
                 alt={icon.name}
                 className="w-12 h-12 border-2 border-white rounded-xl shadow bg-black/50"
               />
-              <span className="text-xs mt-1 text-gray-700">{icon.name}</span>
+              <span className="text-xs mt-1 text-white">{icon.name}</span>
             </button>
           </Rnd>
         ))}
@@ -112,23 +117,23 @@ export default function Page() {
           name={name}
           onClose={() => closeWindow(name)}
         >
-          {name === "Search" ? (
-            <SeasonGraphicus />
+          {name === "Stats" ? (
+            <AcountStats></AcountStats>
           ) : (
-            <>
-              <div className="flex-1 rounded-xl border border-gray-300 bg-white mb-2" />
-              <div className="flex-1 rounded-xl border border-gray-300 bg-white" />
-            </>
+            undefined
           )}
 
-          {name === "Chart2" ? () : (
-            <>
-                <div className="flex-1 rounded-xl border border-gray-300 bg-white mb-2"> </div>
-                <div className="flex-1 rounded-xl border border-gray-300 bg-white"></div> 
-            </>
+          {name === "Top100" ? (
+            <Top100></Top100>
+          ) : (
+            undefined
           )}
-            
-          
+
+          {name === "Settings" ? (
+            <Settings></Settings>
+          ) : (
+            undefined
+          )}
 
         </AnimatedWindow>
       ))}

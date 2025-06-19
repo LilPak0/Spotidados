@@ -29,9 +29,8 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[url(/main_background.png)] bg-cover bg-center h-dvh text-black">
-      <div className="bg-[url(/background_before.png)] bg-center bg-contain bg-no-repeat h-[85%]">
-        <div className="pt-[200px]">
+    <div className="text-black p-1">
+        <div className="pt-[1rem]">
           <p className="text-[20px] font-bold text-center mb-[20px]">
             {mode === "artists" ? "Top 100 Artists" : "Top 100 Songs"}
           </p>
@@ -114,9 +113,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-[url(/nav_bar.png)] bg-no-repeat bg-center bg-contain">
-        <img className="relative top-[-20px]" src="/icon_nav.png" alt="Nav bar icon" />
-      </div>
-    </div>
   );
 }

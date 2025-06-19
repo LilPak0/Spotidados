@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 
 export default function ArtistCards({ color, num, nameArtist }: { color: string, num: number, nameArtist: string }) {
   return (
-    <div className="m-auto w-[80%] flex items-center text-black h-[80px]" style={{ backgroundColor: color }}>
+    <div className="m-auto w-[100%] flex items-center text-black h-[80px]" style={{ backgroundColor: color }}>
       <span className="text-[24px] font-bold ml-5 min-w-[70px] flex-shrink-0">#{num}</span>
       <div className="w-[80px] flex-shrink-0">
         <img
