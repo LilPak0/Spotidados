@@ -112,7 +112,7 @@ export default function Page() {
               <img
                 src={icon.src}
                 alt={icon.name}
-                className="w-12 h-12 border-2 border-white rounded-xl shadow bg-black/50"
+                className="w-12 h-12"
               />
               <span className="text-xs mt-1 text-white">{icon.name}</span>
             </button>

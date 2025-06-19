@@ -29,7 +29,7 @@ export default function AlbumCards({ color, num, nameArtist ,albumName, views, s
             className="absolute left-0 top-0 marquee text-[20px] font-extrabold drop-shadow-[2px_5px_5px_rgba(0,0,0,0.4)] whitespace-nowrap"
             style={{ minWidth: "100%" }}
           >
-            {albumName}&nbsp;&nbsp;&nbsp;&nbsp;{albumName}
+            {albumName}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{albumName}
           </span>
         </div>
         {/*   static below */}

@@ -10,7 +10,7 @@ export default function ArtistStats({ artistName }: { artistName: string }) {
         <div className="bg-[url(/profile_frame.png)] bg-contain w-[180px] h-[180px] flex items-center justify-center">
           <img
             className="object-contain w-[118px]"
-            src="/profile_picture.png"
+            src="/michealjakson.png"
             alt="Profile"
           />
         </div>
@@ -43,7 +43,7 @@ export default function ArtistStats({ artistName }: { artistName: string }) {
             </p>
           </div>
         </div>
-        <div className="mt-4 mx-auto w-full h-[300px] overflow-y-auto bg-transparent">
+        <div className="mt-4 mx-auto w-full h-[260px] overflow-y-auto bg-transparent">
           {stats.topSongs.map((song, index) => <AlbumCards color={index % 2 === 0 ? "#D9D9D9" : "#FFF"} num={index + 1} nameArtist={artistName} albumName={song.name} views={song.count}  />)}
         </div>
       </div>
