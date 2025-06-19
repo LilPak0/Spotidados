@@ -64,7 +64,7 @@ function AnimatedWindow({ name, onClose, children }) {
             <span className="text-2xl text-gray-500 font-bold">&times;</span>
           </button>
         </div>
-        <div className="flex-1 flex flex-col bg-gradient-to-b from-gray-200 to-gray-300 border-b border-gray-300">{children}</div>
+        <div className="flex-1 flex flex-col bg-gradient-to-b from-gray-200 to-gray-300 border-b border-gray-300 h-[34px]">{children}</div>
       </div>
     </Rnd>
   );

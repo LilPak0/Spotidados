@@ -124,7 +124,7 @@ export default function Top100({ setOpenWindows, setArtist }: Top100Props) {
         {/* Scrollable box */}
         <div
           ref={scrollRef}
-          className="mx-auto w-full h-[400px] overflow-y-auto bg-transparent"
+          className="mx-auto w-full h-[640px] overflow-y-auto bg-transparent"
         >
           {mode === "artists" && <ResolveTop100Arts range={range} setOpenWindows={setOpenWindows} setArtist={setArtist}/>}
           {mode === "songs" && <ResolveTop100Songs range={range} setOpenWindows={setOpenWindows} setArtist={setArtist} />}
