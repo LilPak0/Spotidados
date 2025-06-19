@@ -8,11 +8,12 @@ import { Rnd } from "react-rnd";
 import { useRouter } from "next/navigation";
 
 const icons = [
-  { name: "Top100", src: "/iconBarras.png" },
   { name: "Home", src: "/iconCasa.png" },
-  { name: "Settings", src: "/iconGear.png" },
   { name: "Search", src: "/iconLupa.png" },
+
+  { name: "Top100", src: "/iconBarras.png" },
   { name: "Stats", src: "/iconStats.png" },
+  { name: "Settings", src: "/iconGear.png" },
 ];
 
 function AnimatedWindow({ name, onClose, children }) {
