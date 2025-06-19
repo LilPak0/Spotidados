@@ -12,7 +12,7 @@ export default function Home() {
     <div className="text-black p-1">
       <div className=" flex flex-col items-center mt-[2rem] bg-white rounded-2xl inset-shadow-sm inset-shadow-gray-900">
         <div className="bg-[url(/profile_frame.png)] bg-contain w-[180px] h-[180px] flex items-center justify-center">
-          <img className="object-contain w-[118px]" src="/profile_picture.png" alt="Profile" />
+          <img className="object-contain w-[118px]" src="/profile_picture1.png" alt="Profile" />
         </div>
         <p className="text-[32px] mt-4">Your statistics</p>
       </div>

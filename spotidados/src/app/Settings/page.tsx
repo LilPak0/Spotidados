@@ -49,7 +49,12 @@ export default function Home() {
             {/* Botão para trocar entre duas imagens */}
             <button
               onClick={changeProfilePic}
-              className="mb-100 mt-4  bg-[#D9D9D9] text-xl px-2 py-[2px] rounded-lg"
+              className="relative w-[200px] h-[30px] rounded-[20px] flex items-center justify-center bg-gradient-to-br from-[#d7dce1] to-[#a1a8ae] 
+                    border-[2px] border-[#6c7176] mb-100 mt-5
+                    shadow-[4px_4px_8px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_#f0f0f0,inset_2px_2px_4px_#6e6e6e]
+                    hover:shadow-[0_0_10px_#ffffff,inset_-1px_-1px_3px_#ffffff,inset_1px_1px_3px_#808080]
+                    hover:bg-gradient-to-br hover:from-[#e4e8ec] hover:to-[#b1b8be]
+                    active:translate-y-[2px] transition-all duration-100"
             >
               Change Profile Picture
             </button>

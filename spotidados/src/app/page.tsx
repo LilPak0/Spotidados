@@ -84,11 +84,22 @@ export default function Home() {
           draggable={false}
         />
       </div>
-      <div className="absolute top-[782px] left-[180px] flex justify-center ">
+      <div className="absolute top-[782px] left-[180px] flex justify-center">
         <button
           onClick={() => router.push('/TestWindow')}
-          className="relative bg-gradient-to-br from-gray-700 to-gray-300 w-[80px] h-[80px] rounded-[15%] flex items-center justify-center shadow-[2px_5px_5px_rgba(0,0,0,0.4)] overflow-hidden">
-          <img width={"47"} src="/play_icon.png" alt="Icon of a play button" />
+          className="relative w-[90px] h-[90px] rounded-[20px] flex items-center justify-center bg-gradient-to-br from-[#d7dce1] to-[#a1a8ae] 
+                    border-[2px] border-[#6c7176] 
+                    shadow-[4px_4px_8px_rgba(0,0,0,0.4),inset_-2px_-2px_4px_#f0f0f0,inset_2px_2px_4px_#6e6e6e]
+                    hover:shadow-[0_0_10px_#ffffff,inset_-1px_-1px_3px_#ffffff,inset_1px_1px_3px_#808080]
+                    hover:bg-gradient-to-br hover:from-[#e4e8ec] hover:to-[#b1b8be]
+                    active:translate-y-[2px] transition-all duration-200"
+        >
+          <img
+            src="/play_icon.png"
+            alt="Play"
+            width="40"
+            className="drop-shadow-[0_0_2px_black] saturate-150 contrast-125"
+          />
         </button>
       </div>
     </div>
