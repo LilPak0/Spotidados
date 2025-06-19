@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import useTrack from "../hooks/useTrack";
-import ArtistCards from "./ArtistCards";
 
-type ArtistCount = {
+type TrackCount = {
+  track: string;
   artist: string;
   count: number;
 };
@@ -40,7 +40,7 @@ function filterTracksByRange(tracks: any[], range: Range) {
   );
 }
 
-export default function ResolveTop100Arts() {
+export default function ResolveTop100Songs() {
   const tracks = useTrack();
   const [range, setRange] = useState<Range>("all");
 
@@ -49,35 +49,37 @@ export default function ResolveTop100Arts() {
   // Filter tracks by selected range
   const filteredTracks = filterTracksByRange(tracks, range);
 
-  // Count appearances for each artist
-  const artistMap: Record<string, number> = {};
+  // Count appearances for each track (song name + artist for uniqueness)
+  const trackMap: Record<string, { track: string; artist: string; count: number }> = {};
   filteredTracks.forEach((track) => {
-    const artist = track.artist;
-    if (artist) {
-      artistMap[artist] = (artistMap[artist] || 0) + 1;
+    const trackName = track.trackName || "Unknown Track";
+    const artistName = track.artist || "Unknown Artist";
+    const key = `${trackName} - ${artistName}`;
+    if (!trackMap[key]) {
+      trackMap[key] = { track: trackName, artist: artistName, count: 0 };
     }
+    trackMap[key].count += 1;
   });
 
   // Convert to array and sort by count descending
-  const sortedArtists: ArtistCount[] = Object.entries(artistMap)
-    .map(([artist, count]) => ({ artist, count }))
-    .sort((a, b) => b.count - a.count);
+  const sortedTracks: TrackCount[] = Object.values(trackMap).sort((a, b) => b.count - a.count);
 
-    const top100 = sortedArtists.slice(0, 101)
-
-    // alterar return !!!!!!!!!!!!!
   return (
     <div>
-      <h2>Top Artists</h2>
+      <h2>Top Tracks</h2>
       <div>
         <button onClick={() => setRange("4weeks")}>Last 4 Weeks</button>
         <button onClick={() => setRange("6months")}>Last 6 Months</button>
         <button onClick={() => setRange("1year")}>Last Year</button>
         <button onClick={() => setRange("all")}>All Time</button>
       </div>
-        {top100.map(({ artist, count }, index) => (
-          <ArtistCards color={"#D9D9D9"} num={index + 1} nameArtist={artist} ></ArtistCards>
+      <ul>
+        {sortedTracks.map(({ track, artist, count }) => (
+          <li key={`${track} - ${artist}`}>
+            {track} — {artist}: {count} plays
+          </li>
         ))}
+      </ul>
     </div>
   );
 }
