@@ -143,7 +143,9 @@ export default function Page() {
           ) : undefined}
 
           {name === "Daily Average" ? (
-            <HorasAvgDaily/>
+            <div className="bg-white rounded-2xl w-[100%] h-[100%] mt-5 inset-shadow-sm inset-shadow-gray-400">
+              <HorasAvgDaily/>
+            </div>
           ) : undefined}
 
         </AnimatedWindow>
