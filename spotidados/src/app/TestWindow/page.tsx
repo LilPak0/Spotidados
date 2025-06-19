@@ -1,11 +1,12 @@
 "use client";
 import SeasonGraphicus from "@/components/SeasonGraphicus";
 import AcountStats from "@/app/AccountStats/page";
-import Top100 from "@/app/Top100Artists/page";
 import Settings from "@/app/Settings/page";
 import { useState } from "react";
 import { Rnd } from "react-rnd";
 import { useRouter } from "next/navigation";
+import Top100 from "@/components/Pages/Top100";
+import ArtistStats from "@/components/ArtistStats";
 
 const icons = [
   { name: "Home", src: "/iconCasa.png" },
@@ -67,6 +68,7 @@ function AnimatedWindow({ name, onClose, children }) {
 export default function Page() {
   const router = useRouter();
   const [openWindows, setOpenWindows] = useState<string[]>([]);
+  const [artist, setArtist] = useState<string>("");
 
   const openWindow = (name: string) => {
     if (!openWindows.includes(name)) setOpenWindows([...openWindows, name]);
@@ -99,7 +101,7 @@ export default function Page() {
           >
             <button
               onTouchEnd={() => icon.name === "Home" ? router.push("/") : openWindow(icon.name)}
-              onClick={() => openWindow(icon.name)}
+              onClick={() => icon.name === "Home" ? router.push("/") : openWindow(icon.name)}
               className="flex flex-col items-center focus:outline-none"
             >
               <img
@@ -124,12 +126,17 @@ export default function Page() {
           ) : undefined}
 
           {name === "Top100" ? (
-            <Top100 />
+            <Top100 setOpenWindows={setOpenWindows} setArtist={setArtist} />
           ) : undefined}
 
           {name === "Settings" ? (
             <Settings />
           ) : undefined}
+
+          {name === "ArtistStats" ? (
+            <ArtistStats artistName={artist} />
+          ) : undefined}
+
         </AnimatedWindow>
       ))}
     </div>

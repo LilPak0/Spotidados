@@ -43,10 +43,11 @@ function filterTracksByRange(tracks: any[], range: Range) {
 
 interface Props {
   range: Range;
-  setOpenWindows?: React.Dispatch<React.SetStateAction<string[]>>;
+  setOpenWindows: Dispatch<SetStateAction<string[]>>;
+  setArtist: Dispatch<SetStateAction<string>>;
 }
 
-export default function ResolveTop100Albums({ range, setOpenWindows }: Props) {
+export default function ResolveTop100Albums({ range, setOpenWindows, setArtist }: Props) {
   const tracks = useTrack();
 
   if (!tracks || tracks.length === 0) return <div>Loading...</div>;
@@ -80,7 +81,10 @@ export default function ResolveTop100Albums({ range, setOpenWindows }: Props) {
           color={index % 2 === 0 ? "#D9D9D9" : "#FFF"}
           num={index + 1}
           albumName={album}
-          views={count} nameArtist={artist}        />
+          views={count} 
+          nameArtist={artist} 
+          setOpenWindows={setOpenWindows} 
+          setArtist={setArtist}        />
       ))}
     </>
   );

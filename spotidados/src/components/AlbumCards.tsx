@@ -1,6 +1,17 @@
 import { useRef, useEffect, useState } from "react";
 
-export default function AlbumCards({ color, num, nameArtist ,albumName, views }: { color: string, num: number, nameArtist : string, albumName: string , views: number }) {
+interface Props {
+  color: string;
+  num: number;
+  nameArtist: string;
+  albumName: string;
+  views: number;
+  setOpenWindows: Dispatch<SetStateAction<string[]>>;
+  setArtist: Dispatch<SetStateAction<string>>;
+}
+
+
+export default function AlbumCards({ color, num, nameArtist ,albumName, views, setOpenWindows, setArtist }: Props) {
   return (
     <div className="m-auto w-[100%] flex items-center text-black h-[80px]" style={{ backgroundColor: color }}>
       <span className="text-[24px] font-bold ml-3 min-w-[60px] flex-shrink-0">#{num}</span>
@@ -22,7 +33,8 @@ export default function AlbumCards({ color, num, nameArtist ,albumName, views }:
           </span>
         </div>
         {/*   static below */}
-        <div className="w-full h-[24px] flex items-center mt-1">
+        <div onClick={() => {setArtist(nameArtist);
+          setOpenWindows((prev) => [...prev, "ArtistStats"])}} className="w-full h-[24px] flex items-center mt-1">
           <span className="text-[16px] font-normal whitespace-nowrap mr-1.5">
             {nameArtist}
           </span>

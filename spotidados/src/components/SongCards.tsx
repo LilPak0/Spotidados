@@ -1,19 +1,24 @@
 "use client";
-import { useRouter } from "next/navigation";
+
+interface Props {
+  color: string;
+  num: number;
+  nameSong: string;
+  nameArtist: string;
+  setOpenWindows: Dispatch<SetStateAction<string[]>>;
+  setArtist: Dispatch<SetStateAction<string>>;
+}
 
 export default function SongCards({
   color,
   num,
   nameSong,
   nameArtist,
-}: {
-  color: string;
-  num: number;
-  nameSong: string;
-  nameArtist: string;
-}) 
+  setOpenWindows,
+  setArtist
+}: 
+  Props) 
   {
-  const router = useRouter();
   return (
     <div
       className="m-auto w-[100%] flex items-center text-black h-[80px]"
@@ -40,7 +45,8 @@ export default function SongCards({
           </span>
         </div>
         {/* Artist name static below */}
-        <div onClick={() => router.push(`/ArtistPage/${encodeURIComponent(nameArtist)}`)} className="w-full h-[24px] flex items-center mt-1">
+        <div onClick={() => {setArtist(nameArtist);
+          setOpenWindows((prev) => [...prev, "ArtistStats"])}} className="w-full h-[24px] flex items-center mt-1">
           <span className="text-[16px] font-normal whitespace-nowrap">
             {nameArtist}
           </span>

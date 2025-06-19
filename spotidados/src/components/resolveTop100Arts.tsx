@@ -43,10 +43,11 @@ function filterTracksByRange(tracks: any[], range: Range) {
 
 interface Props {
   range: Range;
-  setOpenWindows?: React.Dispatch<React.SetStateAction<string[]>>;
+  setOpenWindows: Dispatch<SetStateAction<string[]>>;
+  setArtist: Dispatch<SetStateAction<string>>;
 }
 
-export default function ResolveTop100Arts({ range, setOpenWindows }: Props) {
+export default function ResolveTop100Arts({ range, setOpenWindows, setArtist }: Props) {
   const tracks = useTrack();
   const router = useRouter();
 
@@ -74,7 +75,8 @@ export default function ResolveTop100Arts({ range, setOpenWindows }: Props) {
   return (
     <>
       {top100.map(({ artist, count }, index) => (
-        <div key={artist} onClick={() => router.push(`/ArtistPage/${encodeURIComponent(artist)}`)}>
+        <div key={artist} onClick={() => { setArtist(artist);
+          setOpenWindows((prev) => [...prev, "ArtistStats"])}}>
           <ArtistCards
             color={index % 2 === 0 ? "#D9D9D9" : "#FFF"}
             num={index + 1}
