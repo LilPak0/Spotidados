@@ -7,11 +7,11 @@ import { Rnd } from "react-rnd";
 import { useRouter } from "next/navigation";
 import Top100 from "@/components/Pages/Top100";
 import ArtistStats from "@/components/ArtistStats";
+import ArtistSearch from "@/components/Search";
 
 const icons = [
   { name: "Home", src: "/iconCasa.png" },
   { name: "Search", src: "/iconLupa.png" },
-
   { name: "Top100", src: "/iconBarras.png" },
   { name: "Stats", src: "/iconStats.png" },
   { name: "Settings", src: "/iconGear.png" },
@@ -123,6 +123,10 @@ export default function Page() {
         >
           {name === "Stats" ? (
             <AcountStats />
+          ) : undefined}
+
+          {name === "Search" ? (
+            <ArtistSearch />
           ) : undefined}
 
           {name === "Top100" ? (

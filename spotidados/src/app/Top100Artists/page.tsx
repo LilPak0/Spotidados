@@ -121,8 +121,8 @@ export default function Home() {
           ref={scrollRef}
           className="mx-auto w-full h-[660px] overflow-y-auto bg-transparent"
         >
-          {mode === "artists" && <ResolveTop100Arts range={range} />}
-          {mode === "songs" && <ResolveTop100Songs range={range} />}
+          {mode === "artists" && <ResolveTop100Arts range={range}/>}
+          {mode === "songs" && <ResolveTop100Songs range={range}/>}
           {mode === "albums" && <ResolveTop100Albums range={range} />}
         </div>
       </div>
