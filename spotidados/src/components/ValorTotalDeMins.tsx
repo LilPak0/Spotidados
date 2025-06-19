@@ -6,8 +6,6 @@ export default function ValorTotalDeMins(){
     const totalMinutes = Math.round(totalMs / 60000);
 
   return (
-    <div>
-      Total playtime: {totalMinutes} minutes
-    </div>
+    <div> Total playtime: <strong>{totalMinutes}</strong> minutes </div>
   );
 }

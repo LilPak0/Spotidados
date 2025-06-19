@@ -29,7 +29,7 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="text-[1.12rem]"><strong> <ValorTotalDeMins/> </strong></p>
+            <p className="text-[1.12rem]"> <ValorTotalDeMins/> </p>
             <p className="text-[1.12rem]">An average of <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes per day</p>
           </div>
 
