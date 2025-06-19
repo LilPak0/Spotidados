@@ -119,7 +119,7 @@ export default function Home() {
         {/* Scrollable box */}
         <div
           ref={scrollRef}
-          className="mx-auto w-full h-[400px] overflow-y-auto bg-transparent"
+          className="mx-auto w-full h-[660px] overflow-y-auto bg-transparent"
         >
           {mode === "artists" && <ResolveTop100Arts range={range} />}
           {mode === "songs" && <ResolveTop100Songs range={range} />}
