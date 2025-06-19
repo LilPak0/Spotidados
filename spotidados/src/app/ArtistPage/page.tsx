@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import AvgTimePlayed from "@/components/AvgTimePlay";
 import TotalSongs from "@/components/TotalSongs";
 import TotalDifferentSongs from "@/components/TotalDifferentSongs";
-import SeasonPieChart from "@/components/SeasonGraphicus";
 
 export default function Home() {
   const router = useRouter();
@@ -14,27 +13,25 @@ export default function Home() {
           <div className="bg-[url(/profile_frame.png)] bg-contain w-[180px] h-[180px] flex items-center justify-center">
             <img className="object-contain w-[118px]" src="/profile_picture.png" alt="Profile" />
           </div>
-          <p className="text-[32px] mt-4">Hi, Callax13</p>
+          <p className="text-[32px] mt-4">Travis Scott</p>
         </div>
 
-        <div className="mt-[5rem] flex flex-col justify-center items-center px-8 w-full max-w-md">
-           <div className="space-y-6 text-center">
-             <div>
-               <p className="text-[1.12rem]">You've played <strong><TotalSongs></TotalSongs></strong> songs</p>
-               <p className="text-[1.12rem]">A total of <strong><TotalDifferentSongs></TotalDifferentSongs></strong> different tracks</p>
-             </div>
-
-             <div>
-               <p className="text-[1.12rem]">You've heard <strong>12</strong> minutes</p>
-               <p className="text-[1.12rem]">An average of <strong><AvgTimePlayed></AvgTimePlayed></strong> minutes per day</p>
-              </div>
-
-             <div>
-               <p className="text-[1.12rem]">You prefer to listen to music at: </p>
-               <p className="text-[1.12rem]">Your <strong>Summer</strong> is always full of music</p>
-             </div>
-             <SeasonPieChart></SeasonPieChart>
-           </div>
+        <div className="mt-[5rem] flex flex-col justify-center items-center px-15 w-full max-w-md">
+            <div className="space-y-6 text-center">
+                <div>
+                    <p className="text-[1.12rem]">You’ve played <strong>2488</strong> songs</p>
+                    <p className="text-[1.12rem]">A total of <strong>45</strong> different tracks</p>
+                </div>
+            
+                <div>
+                    <p className="text-[1.12rem]">You've heard <strong>4000</strong> minutes</p>
+                    <p className="text-[1.12rem]">This artist is <strong>4%</strong> of your listening</p>
+                </div>
+            
+                <div>
+                    <p className="text-[1.12rem]">It seems like <strong>Travis Scott</strong> is always included in your headphones in the <strong>Summer</strong>.</p>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -64,4 +61,3 @@ export default function Home() {
     </div>
   );
 }
-

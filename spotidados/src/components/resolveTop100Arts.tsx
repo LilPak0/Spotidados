@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useTrack from "../hooks/useTrack";
+import ArtistCards from "./ArtistCards";
 
 type ArtistCount = {
   artist: string;
@@ -62,6 +63,7 @@ export default function TopArtists() {
     .map(([artist, count]) => ({ artist, count }))
     .sort((a, b) => b.count - a.count);
 
+    const top100 = sortedArtists.slice(0, 101)
 
     // alterar return !!!!!!!!!!!!!
   return (
@@ -73,13 +75,9 @@ export default function TopArtists() {
         <button onClick={() => setRange("1year")}>Last Year</button>
         <button onClick={() => setRange("all")}>All Time</button>
       </div>
-      <ul>
-        {sortedArtists.map(({ artist, count }) => (
-          <li key={artist}>
-            {artist}: {count} plays
-          </li>
+        {top100.map(({ artist, count }, index) => (
+          <ArtistCards color={"#D9D9D9"} num={index + 1} nameArtist={artist} ></ArtistCards>
         ))}
-      </ul>
     </div>
   );
 }
