@@ -16,9 +16,8 @@ export default function Home() {
         <p className="text-[32px] mt-4">Hi, Callax13</p>
       </div>
 
-      <div className="flex-1 flex flex-col gap-2 p-2">  
-        <div className="flex-1 rounded-xl border border-red-700 bg-blue-700 mb-2" />
-        <div className="flex-1 rounded-xl border border-red-700 bg-blue-700" />
+      <div className="flex flex-col items-center gap-2 p-2">
+        <div className="h-5 w-[400px] bg-gradient-to-b from-gray-200 to-gray-300 mb-4 rounded-lg mr-5 mx-auto" />
       </div>
 
       <div className="mt-[3rem] flex flex-col justify-center items-center px-8 w-full max-w-md">
