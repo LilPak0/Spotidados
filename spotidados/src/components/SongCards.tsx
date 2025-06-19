@@ -30,7 +30,7 @@ export default function SongCards({
       <div className="w-[80px] flex-shrink-0">
         <img
           className="w-[70px] h-[60px] object-cover rounded-full"
-          src="https://upload.wikimedia.org/wikipedia/en/8/89/Michael_jackson_thriller_12_inch_single_USA.jpg"
+          src="/michealjakson.png"
           alt="Thriller"
         />
       </div>

@@ -18,8 +18,8 @@ export default function AlbumCards({ color, num, nameArtist ,albumName, views, s
       <div className="w-[80px] flex-shrink-0">
         <img
           className="w-[70px] h-[70px] object-cover rounded-full"
-          src="https://upload.wikimedia.org/wikipedia/en/8/89/Michael_jackson_thriller_12_inch_single_USA.jpg"
-          alt="Thriller"
+          src="/michealjakson.png"
+          alt="Artist"
         />
       </div>
       <div className="ml-2 flex-1 overflow-hidden relative h-[54px] flex flex-col justify-center">
