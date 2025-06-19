@@ -16,20 +16,20 @@ export default function SongCards({
   const router = useRouter();
   return (
     <div
-      className="m-auto w-[80%] flex items-center text-black h-[80px]"
+      className="m-auto w-[100%] flex items-center text-black h-[80px]"
       style={{ backgroundColor: color }}
     >
-      <span className="text-[24px] font-extrabold ml-5 min-w-[70px] flex-shrink-0">
+      <span className="text-[24px] font-extrabold ml-3 min-w-[70px] flex-shrink-0">
         #{num}
       </span>
       <div className="w-[80px] flex-shrink-0">
         <img
-          className="w-[70px] h-[70px] object-cover rounded-full"
+          className="w-[70px] h-[60px] object-cover rounded-full"
           src="https://upload.wikimedia.org/wikipedia/en/8/89/Michael_jackson_thriller_12_inch_single_USA.jpg"
           alt="Thriller"
         />
       </div>
-      <div className="ml-5 flex-1 overflow-hidden relative h-[54px] flex flex-col justify-center">
+      <div className="ml-2 flex-1 overflow-hidden relative h-[54px] flex flex-col justify-center">
         {/* Song name marquee */}
         <div className="w-full overflow-hidden h-[28px] relative">
           <span

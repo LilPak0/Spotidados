@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useTrack from "../hooks/useTrack";
+import AlbumCards from "./AlbumCards";
 
 type AlbumCount = {
   album: string;
@@ -40,14 +41,19 @@ function filterTracksByRange(tracks: any[], range: Range) {
   );
 }
 
-export default function ResolveTop100Albums() {
+interface Props {
+  range: Range;
+}
+
+export default function ResolveTop100Albums({ range }: Props) {
   const tracks = useTrack();
-  const [range, setRange] = useState<Range>("all");
 
   if (!tracks || tracks.length === 0) return <div>Loading...</div>;
 
   // Filter tracks by selected range
-  const filteredTracks = filterTracksByRange(tracks, range);
+  const filteredTracks = filterTracksByRange(tracks, range).filter(
+    (track) => track.album && track.artist
+  );;
 
   // Count appearances for each album (album name + artist for uniqueness)
   const albumMap: Record<string, { album: string; artist: string; count: number }> = {};
@@ -67,21 +73,14 @@ export default function ResolveTop100Albums() {
     .slice(0, 100);
 
   return (
-    <div>
-      <h2>Top 100 Albums</h2>
-      <div>
-        <button onClick={() => setRange("4weeks")}>Last 4 Weeks</button>
-        <button onClick={() => setRange("6months")}>Last 6 Months</button>
-        <button onClick={() => setRange("1year")}>Last Year</button>
-        <button onClick={() => setRange("all")}>All Time</button>
-      </div>
-      <ul>
-        {sortedAlbums.map(({ album, artist, count }) => (
-          <li key={`${album} - ${artist}`}>
-            {album} — {artist}: {count} plays
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {sortedAlbums.map(({ album, artist, count }, index) => (
+        <AlbumCards
+          color={index % 2 === 0 ? "#D9D9D9" : "#FFF"}
+          num={index + 1}
+          albumName={album}
+          views={count} nameArtist={artist}        />
+      ))}
+    </>
   );
 }
