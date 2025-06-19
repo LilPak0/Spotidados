@@ -17,7 +17,7 @@ const icons = [
 function AnimatedWindow({ name, onClose, children }) {
   const [closing, setClosing] = useState(false);
   const width = 405;
-  const height = 857;
+  const height = 890;
 
   const handleClose = () => {
     setClosing(true);
@@ -56,7 +56,7 @@ function AnimatedWindow({ name, onClose, children }) {
             <span className="text-2xl text-gray-500 font-bold">&times;</span>
           </button>
         </div>
-        <div className="flex-1 flex flex-col gap-2 p-2">
+        <div className="flex-1 flex flex-col">
           {children}
         </div>
       </div>
