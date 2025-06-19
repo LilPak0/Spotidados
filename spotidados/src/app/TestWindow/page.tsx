@@ -99,7 +99,7 @@ export default function Page() {
           >
             <button
               onTouchEnd={() => icon.name === "Home" ? router.push("/") : openWindow(icon.name)}
-              onClick={() => openWindow(icon.name)}
+              onClick={() => icon.name === "Home" ? router.push("/") : openWindow(icon.name)}
               className="flex flex-col items-center focus:outline-none"
             >
               <img
