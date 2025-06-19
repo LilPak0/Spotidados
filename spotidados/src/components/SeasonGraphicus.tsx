@@ -2,11 +2,20 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import useTrack from "../hooks/useTrack";
 import { filtrosSazonais } from "./filtrosSazonais";
 
+<<<<<<< HEAD
 const COLORS = ["#f9d005 ", // inver
                 "#e97912 ", // primv
                 "#0daff2", // verao
                 "#29ab4d"  // outon
               ];
+=======
+const COLORS = [
+  "#FFBB28", // Winter
+  "#FF8042", // Spring
+  "#0088FE", // Summer
+  "#00C49F", // Autumn
+];
+>>>>>>> 48792e6856774544002b7bda8b84dd4e1a0478bb
 
 export default function SeasonGraphicus() {
   const tracks = useTrack();
@@ -21,22 +30,26 @@ export default function SeasonGraphicus() {
     value,
   }));
 
-  let totalHours = 0; 
+  let totalHours = 0;
 
   for (let index = 0; index < data.length; index++) {
-    totalHours += data[index].value
+    totalHours += data[index].value;
   }
 
   console.log(totalHours);
 
   const dataPercente = data.map((obj) => {
-      obj.value = Math.round(100 * obj.value / totalHours * 10) / 10
-  })
-  
-  console.log(data)
+    obj.value = Math.round((100 * obj.value) / totalHours) * 10 / 10;
+  });
+
+  console.log(data);
 
   return (
+<<<<<<< HEAD
     <PieChart width={400} height={170}>
+=======
+    <PieChart width={355} height={300}>
+>>>>>>> 48792e6856774544002b7bda8b84dd4e1a0478bb
       <Pie
         data={data}
         dataKey="value"
