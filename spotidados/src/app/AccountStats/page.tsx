@@ -32,9 +32,9 @@ export default function Home() {
              <div>
                <p className="text-[1.12rem]">You prefer to listen to music at: </p>
                <p className="text-[1.12rem]">Your <strong>Summer</strong> is always full of music</p>
-             </div>
-             <SeasonPieChart></SeasonPieChart>
+             </div> 
            </div>
+           <SeasonPieChart></SeasonPieChart>
         </div>
       </div>
 

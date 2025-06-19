@@ -1,21 +1,12 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import useTrack from "../hooks/useTrack";
-import { filtrosSazonais } from "./FiltrosSazonais";
+import { filtrosSazonais } from "./filtrosSazonais";
 
-<<<<<<< HEAD
 const COLORS = ["#f9d005 ", // inver
                 "#e97912 ", // primv
                 "#0daff2", // verao
                 "#29ab4d"  // outon
               ];
-=======
-const COLORS = [
-  "#FFBB28", // Winter
-  "#FF8042", // Spring
-  "#0088FE", // Summer
-  "#00C49F", // Autumn
-];
->>>>>>> 66df8e4b33978ba2880341d784e3e7fc72a819dc
 
 export default function SeasonGraphicus() {
   const tracks = useTrack();
@@ -45,18 +36,14 @@ export default function SeasonGraphicus() {
   console.log(data)
 
   return (
-<<<<<<< HEAD
-    <PieChart width={300} height={200}>
-=======
-    <PieChart width={355} height={300}>
->>>>>>> 66df8e4b33978ba2880341d784e3e7fc72a819dc
+    <PieChart width={400} height={170}>
       <Pie
         data={data}
         dataKey="value"
         nameKey="season"
         cx="50%"
         cy="50%"
-        outerRadius={100}
+        outerRadius={50}
         fill="#8884d8"
         label
       >

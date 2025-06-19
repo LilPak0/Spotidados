@@ -1,15 +1,50 @@
+"use client";
+import { useRouter } from "next/navigation";
 
-export default function SongCards({color,num,nameSong,nameArtist} : {color : string, num : number, nameSong : string, nameArtist: string}) {
+export default function SongCards({
+  color,
+  num,
+  nameSong,
+  nameArtist,
+}: {
+  color: string;
+  num: number;
+  nameSong: string;
+  nameArtist: string;
+}) 
+  {
+  const router = useRouter();
   return (
-    <div className="m-auto w-[80%] flex items-center text-black h-[80px]" style={{ backgroundColor : color }}>
-      <span className="text-[24px] font-extrabold ml-5 mr-5">#{num}</span>
-      <div className="w-[80px]">
-        <img src="https://upload.wikimedia.org/wikipedia/en/8/89/Michael_jackson_thriller_12_inch_single_USA.jpg" alt="Triller" />
+    <div
+      className="m-auto w-[80%] flex items-center text-black h-[80px]"
+      style={{ backgroundColor: color }}
+    >
+      <span className="text-[24px] font-extrabold ml-5 min-w-[70px] flex-shrink-0">
+        #{num}
+      </span>
+      <div className="w-[80px] flex-shrink-0">
+        <img
+          className="w-[70px] h-[70px] object-cover rounded-full"
+          src="https://upload.wikimedia.org/wikipedia/en/8/89/Michael_jackson_thriller_12_inch_single_USA.jpg"
+          alt="Thriller"
+        />
       </div>
-      <div className="ml-5">
-        <span className="text-[20px] font-extrabold drop-shadow-[2px_5px_5px_rgba(0,0,0,0.4)]">{nameSong}</span>
-        <br />
-        <span className="text-[16px]">{nameArtist}</span>
+      <div className="ml-5 flex-1 overflow-hidden relative h-[54px] flex flex-col justify-center">
+        {/* Song name marquee */}
+        <div className="w-full overflow-hidden h-[28px] relative">
+          <span
+            className="absolute left-0 top-0 marquee text-[20px] font-extrabold drop-shadow-[2px_5px_5px_rgba(0,0,0,0.4)] whitespace-nowrap"
+            style={{ minWidth: "100%" }}
+          >
+            {nameSong}&nbsp;&nbsp;&nbsp;&nbsp;{nameSong}
+          </span>
+        </div>
+        {/* Artist name static below */}
+        <div onClick={() => router.push(`/ArtistPage/${encodeURIComponent(nameArtist)}`)} className="w-full h-[24px] flex items-center mt-1">
+          <span className="text-[16px] font-normal whitespace-nowrap">
+            {nameArtist}
+          </span>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useTrack from "../hooks/useTrack";
+import SongCards from "./SongCards";
 
 type TrackCount = {
   track: string;
@@ -40,14 +41,20 @@ function filterTracksByRange(tracks: any[], range: Range) {
   );
 }
 
-export default function ResolveTop100Songs() {
-  const tracks = useTrack();
-  const [range, setRange] = useState<Range>("all");
+interface Props {
+  range: Range;
+}
 
-  if (!tracks || tracks.length === 0) return <div>Loading...</div>;
+export default function ResolveTop100Songs({ range }: Props) {
+  const tracks = useTrack();
+
+  if (!tracks || tracks.length === 0) return;
 
   // Filter tracks by selected range
-  const filteredTracks = filterTracksByRange(tracks, range);
+  // After filtering by date, filter out tracks with missing artist
+  const filteredTracks = filterTracksByRange(tracks, range).filter(
+    (track) => track.artist && track.trackName
+  );
 
   // Count appearances for each track (song name + artist for uniqueness)
   const trackMap: Record<string, { track: string; artist: string; count: number }> = {};
@@ -63,23 +70,19 @@ export default function ResolveTop100Songs() {
 
   // Convert to array and sort by count descending
   const sortedTracks: TrackCount[] = Object.values(trackMap).sort((a, b) => b.count - a.count);
+  const top100 = sortedTracks.slice(0, 100);
 
   return (
-    <div>
-      <h2>Top Tracks</h2>
-      <div>
-        <button onClick={() => setRange("4weeks")}>Last 4 Weeks</button>
-        <button onClick={() => setRange("6months")}>Last 6 Months</button>
-        <button onClick={() => setRange("1year")}>Last Year</button>
-        <button onClick={() => setRange("all")}>All Time</button>
-      </div>
-      <ul>
-        {sortedTracks.map(({ track, artist, count }) => (
-          <li key={`${track} - ${artist}`}>
-            {track} — {artist}: {count} plays
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {top100.map(({ track, artist }, index) => (
+        <SongCards
+          key={`${track}-${artist}`}
+          color={index % 2 === 0 ? "#D9D9D9" : "#FFF"}
+          num={index + 1}
+          nameSong={track}
+          nameArtist={artist}
+        />
+      ))}
+    </>
   );
 }

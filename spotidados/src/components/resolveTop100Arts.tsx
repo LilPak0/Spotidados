@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useTrack from "../hooks/useTrack";
 import ArtistCards from "./ArtistCards";
+import { useRouter } from "next/navigation";
 
 type ArtistCount = {
   artist: string;
@@ -40,11 +41,15 @@ function filterTracksByRange(tracks: any[], range: Range) {
   );
 }
 
-export default function ResolveTop100Arts() {
-  const tracks = useTrack();
-  const [range, setRange] = useState<Range>("all");
+interface Props {
+  range: Range;
+}
 
-  if (!tracks || tracks.length === 0) return <div>Loading...</div>;
+export default function ResolveTop100Arts({ range }: Props) {
+  const tracks = useTrack();
+  const router = useRouter();
+
+  if (!tracks || tracks.length === 0) return;
 
   // Filter tracks by selected range
   const filteredTracks = filterTracksByRange(tracks, range);
@@ -63,21 +68,19 @@ export default function ResolveTop100Arts() {
     .map(([artist, count]) => ({ artist, count }))
     .sort((a, b) => b.count - a.count);
 
-    const top100 = sortedArtists.slice(0, 101)
+  const top100 = sortedArtists.slice(0, 100);
 
-    // alterar return !!!!!!!!!!!!!
   return (
-    <div>
-      <h2>Top Artists</h2>
-      <div>
-        <button onClick={() => setRange("4weeks")}>Last 4 Weeks</button>
-        <button onClick={() => setRange("6months")}>Last 6 Months</button>
-        <button onClick={() => setRange("1year")}>Last Year</button>
-        <button onClick={() => setRange("all")}>All Time</button>
-      </div>
-        {top100.map(({ artist, count }, index) => (
-          <ArtistCards color={"#D9D9D9"} num={index + 1} nameArtist={artist} ></ArtistCards>
-        ))}
-    </div>
+    <>
+      {top100.map(({ artist, count }, index) => (
+        <div key={artist} onClick={() => router.push(`/ArtistPage/${encodeURIComponent(artist)}`)}>
+          <ArtistCards
+            color={index % 2 === 0 ? "#D9D9D9" : "#FFF"}
+            num={index + 1}
+            nameArtist={artist}
+          />
+        </div>
+      ))}
+    </>
   );
 }
