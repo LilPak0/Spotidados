@@ -2,7 +2,8 @@
 
 export default function Home() {
   return (
-    <div className="text-black p-5">
+    <div className="text-black p-5 w-[100%] h-[58%]">
+      <div className="bg-white rounded-2xl inset-shadow-sm inset-shadow-gray-900">
       <div className="ml-[1rem] flex flex-row items-center mt-[1rem]">
         <div className="bg-[url(/profile_frame.png)] bg-contain w-[140px] h-[140px] bg-no-repeat flex items-center justify-center mr-[1rem]">
           <img className="object-contain w-[92px]" src="/profile_picture.png" alt="Profile" />
@@ -19,8 +20,9 @@ export default function Home() {
         <p className="mb-2">Membership Plan: None</p>
         <p className="mb-2">Status: Missed last payment</p>
       </div>
-      <div className="flex items-center gap-2 p-2">
-        <div className="h-3 w-[100%] bg-gradient-to-b from-gray-200 to-gray-300 mx-auto" />
+      </div>
+      <div className="bg-white rounded-2xl w-[100%] h-[100%] mt-5 inset-shadow-sm inset-shadow-gray-400">
+
       </div>
     </div>
   );
