@@ -43,30 +43,30 @@ export default function Home() {
         {/* Toggle buttons */}
         <div className="flex justify-center gap-2 mb-2">
           <button
-            className={`px-3 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-3 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               mode === "artists"
-                ? "bg-green-600 text-white"
-                : "bg-white text-green-600 border border-green-600"
+                ? "bg-green-600 text-white border-green-600"
+                : "bg-white text-green-600 border-green-600"
             }`}
             onClick={() => handleMode("artists")}
           >
             Artists
           </button>
           <button
-            className={`px-3 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-3 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               mode === "songs"
-                ? "bg-green-600 text-white"
-                : "bg-white text-green-600 border border-green-600"
+                ? "bg-green-600 text-white border-green-600"
+                : "bg-white text-green-600 border-green-600"
             }`}
             onClick={() => handleMode("songs")}
           >
             Songs
           </button>
           <button
-            className={`px-3 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-3 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               mode === "albums"
-                ? "bg-green-600 text-white"
-                : "bg-white text-green-600 border border-green-600"
+                ? "bg-green-600 text-white border-green-600"
+                : "bg-white text-green-600 border-green-600"
             }`}
             onClick={() => handleMode("albums")}
           >
@@ -76,40 +76,40 @@ export default function Home() {
         {/* Filter buttons */}
         <div className="flex justify-center gap-2 mb-4">
           <button
-            className={`px-1 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-2 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               range === "4weeks"
-                ? "bg-blue-600 text-white"
-                : "bg-white text-blue-600 border border-blue-600"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-600"
             }`}
             onClick={() => handleFilter("4weeks")}
           >
             Last 4 Weeks
           </button>
           <button
-            className={`px-2 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-2 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               range === "6months"
-                ? "bg-blue-600 text-white"
-                : "bg-white text-blue-600 border border-blue-600"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-600"
             }`}
             onClick={() => handleFilter("6months")}
           >
             Last 6 Months
           </button>
           <button
-            className={`px-2 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-2 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               range === "1year"
-                ? "bg-blue-600 text-white"
-                : "bg-white text-blue-600 border border-blue-600"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-600"
             }`}
             onClick={() => handleFilter("1year")}
           >
             Last Year
           </button>
           <button
-            className={`px-2 py-1 text-sm rounded-full font-semibold transition-colors ${
+            className={`px-2 py-1 text-sm rounded-lg font-semibold transition-colors border ${
               range === "all"
-                ? "bg-blue-600 text-white"
-                : "bg-white text-blue-600 border border-blue-600"
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-600"
             }`}
             onClick={() => handleFilter("all")}
           >
